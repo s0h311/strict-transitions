@@ -11,7 +11,8 @@ export type BasicAction = {
   type: string
 }
 
-export type TransitionStore<S, A extends BasicAction> = {
+export type TransitionStore<S = unknown, A extends BasicAction = { type: string }> = {
   validateTransition: (state: S, action: A, transitions: Transitions<S>) => void
   transitions: Transitions<S>
+  dispatchTransition: (this: TransitionStore<S, A>, action: BasicAction) => void
 } & Store

@@ -1,5 +1,4 @@
-import { validateTransition } from './validateTransition'
-import { createTransitionStore } from './createTransitionStore'
+import { createStore } from 'redux'
 
 type State = 'not fetched' | 'fetching' | string[] | Error
 type Action =
@@ -16,9 +15,18 @@ type Action =
     }
 
 function reducer(state: State = 'not fetched', action: Action) {
-  return validateTransition(state, action, [])
+  switch (action.type) {
+    case 'fetch':
+      return 'fetching'
+    case 'fetched':
+      return action.payload
+    case 'fetch failed':
+      return action.payload
+    default:
+      return state
+  }
 }
 
-const store = createTransitionStore([], reducer)
+const store = createStore(reducer)
 
 store.dispatch({ type: 'fetch' })
