@@ -48,6 +48,7 @@ describe('createTransitionStore', () => {
   let store: TransitionStore
 
   beforeEach(() => {
+    // @ts-expect-error TODO fix typing createTransitionStore
     store = createTransitionStore(transitions, reducer)
   })
 

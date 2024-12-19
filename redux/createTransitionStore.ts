@@ -21,5 +21,6 @@ export function createTransitionStore<S>(
     value: dispatchTransition,
   })
 
+  // TODO improve typing
   return store as unknown as TransitionStore<S>
 }
