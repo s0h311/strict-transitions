@@ -6,9 +6,13 @@
   "main": "dist/index.cjs",
   "types": "dist/index.dts",
   "packageManager": "pnpm@9.12.0",
+  "scripts": {
+    "test": "vitest"
+  },
   "devDependencies": {
     "@ngrx/store": "^19.0.0",
     "prettier": "^3.4.2",
-    "redux": "^5.0.1"
+    "redux": "^5.0.1",
+    "vitest": "^2.1.8"
   }
 }

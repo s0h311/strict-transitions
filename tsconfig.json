@@ -1,7 +1,15 @@
 {
   "compilerOptions": {
+    "strict": true,
+    "declaration": true,
+    "noUncheckedIndexedAccess": true,
+    "moduleResolution": "Bundler",
     "module": "ESNext",
-    "target": "ES2022",
-    "moduleResolution": "Bundler"
+    "target": "ESNext",
+    "lib": ["ESNext", "Dom", "Dom.Iterable"],
+    "noEmit": true,
+    "emitDeclarationOnly": true,
+    "allowImportingTsExtensions": true,
+    "types": ["vitest/globals"]
   }
 }
