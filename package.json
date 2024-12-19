@@ -4,5 +4,11 @@
   "type": "module",
   "module": "dist/index.mjs",
   "main": "dist/index.cjs",
-  "types": "dist/index.dts"
+  "types": "dist/index.dts",
+  "packageManager": "pnpm@9.12.0",
+  "devDependencies": {
+    "@ngrx/store": "^19.0.0",
+    "prettier": "^3.4.2",
+    "redux": "^5.0.1"
+  }
 }

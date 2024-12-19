@@ -1,2 +1,2 @@
-export * from './transitionFn'
+export * from './validateTransition'
 export * from './types'

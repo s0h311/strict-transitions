@@ -1,22 +1,17 @@
-export type Transition<S, A> = {
+import { Store } from 'redux'
+
+export type Transition<S> = {
   condition: (state: S) => boolean
-  action: A
-} & (
-  | {
-  nextState: S
+  actionTypes: string[]
 }
-  | {
-  usePayload: true
-}
-  )
 
-export type Transitions<S, A> = Transition<S, A>[]
+export type Transitions<S> = Transition<S>[]
 
-export type Action<P> =
-  | {
+export type BasicAction = {
   type: string
 }
-  | {
-  type: string
-  payload: P
-}
+
+export type TransitionStore<S, A extends BasicAction> = {
+  validateTransition: (state: S, action: A, transitions: Transitions<S>) => void
+  transitions: Transitions<S>
+} & Store
