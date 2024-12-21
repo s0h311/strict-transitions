@@ -6,10 +6,17 @@
     "moduleResolution": "Bundler",
     "module": "ESNext",
     "target": "ESNext",
-    "lib": ["ESNext", "Dom", "Dom.Iterable"],
+    "lib": [
+      "ESNext",
+      "Dom",
+      "Dom.Iterable"
+    ],
     "noEmit": true,
     "emitDeclarationOnly": true,
     "allowImportingTsExtensions": true,
-    "types": ["vitest/globals"]
+    "types": [
+      "vitest/globals"
+    ],
+    "useDefineForClassFields": false
   }
 }

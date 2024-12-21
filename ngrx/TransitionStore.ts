@@ -7,25 +7,30 @@ export class TransitionStore<S = unknown> {
   constructor(
     private store: Store,
     private transitions: Transitions<S>
-  ) {
-    console.log('TransitionStore initializing')
-    console.log('TransitionStore store', store)
+  ) {}
+
+  public select(...args: Parameters<typeof this.store.select>): ReturnType<typeof this.store.select> {
+    return this.store.select(...args)
   }
 
-  // @ts-expect-error TODO configure TS to understand DI
-  public select = this.store.select
-  // @ts-expect-error TODO configure TS to understand DI
-  public selectSignal: typeof this.store.selectSignal = this.store.selectSignal
-  // @ts-expect-error TODO configure TS to understand DI
-  public pipe = this.store.pipe
-  // @ts-expect-error TODO configure TS to understand DI
-  public subscribe = this.store.subscribe
+  public selectSignal(...args: Parameters<typeof this.store.selectSignal>): ReturnType<typeof this.store.selectSignal> {
+    return this.store.selectSignal(...args)
+  }
 
-  public dispatchTransition(action: BasicAction): void {
+  public pipe(...args: Parameters<typeof this.store.pipe>): ReturnType<typeof this.store.pipe> {
+    return this.store.pipe(...args)
+  }
+
+  public subscribe(...args: Parameters<typeof this.store.subscribe>): ReturnType<typeof this.store.subscribe> {
+    return this.store.subscribe(...args)
+  }
+
+  public dispatch<A extends BasicAction>(action: A): void {
     firstValueFrom(this.store.pipe()).then((state) => {
       // @ts-expect-error TODO improve typing
       validateTransition(state, action, this.transitions)
 
+      // @ts-expect-error TODO improve typing
       this.store.dispatch(action)
     })
   }
