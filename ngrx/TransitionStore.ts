@@ -1,13 +1,16 @@
 import { Store } from '@ngrx/store'
-import { BasicAction, Transitions } from './types.ts'
-import { validateTransition } from './validateTransition.ts'
+import { BasicAction, Transitions } from './types'
+import { validateTransition } from './validateTransition'
 import { firstValueFrom } from 'rxjs'
 
 export class TransitionStore<S = unknown> {
   constructor(
     private store: Store,
     private transitions: Transitions<S>
-  ) {}
+  ) {
+    console.log('TransitionStore initializing')
+    console.log('TransitionStore store', store)
+  }
 
   // @ts-expect-error TODO configure TS to understand DI
   public select = this.store.select

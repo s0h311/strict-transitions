@@ -1,8 +1,11 @@
 import { inject } from '@angular/core'
-import { TransitionStore } from './TransitionStore.ts'
+import { TransitionStore } from './TransitionStore'
 import { Store } from '@ngrx/store'
-import { Transitions } from './types.ts'
+import { Transitions } from './types'
 
 export function provideTransitionStore<S>(transitions: Transitions<S>) {
-  return { useFactory: () => new TransitionStore(inject(Store), transitions) }
+  return {
+    provide: TransitionStore,
+    useFactory: () => new TransitionStore(inject(Store), transitions),
+  }
 }
