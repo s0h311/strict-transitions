@@ -22,11 +22,11 @@ type Action =
 
 const transitions = createTransitions([
   {
-    condition: (state) => state === 'not-fetched',
+    identityFn: (state) => state === 'not-fetched',
     actionTypes: ['fetch'],
   },
   {
-    condition: (state) => state === 'fetching',
+    identityFn: (state) => state === 'fetching',
     actionTypes: ['fetch-successful', 'fetch-failed'],
   },
 ])

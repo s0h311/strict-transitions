@@ -16,11 +16,11 @@ export const appConfig: ApplicationConfig = {
     provideStore([cartReducer]),
     provideTransitionStore([
       {
-        condition: (state: Record<number, Cart>) => state[0] === 'not-fetched',
+        identityFn: (state: Record<number, Cart>) => state[0] === 'not-fetched',
         actions: [cartFetchAction],
       },
       {
-        condition: (state: Record<number, Cart>) => state[0] === 'fetching',
+        identityFn: (state: Record<number, Cart>) => state[0] === 'fetching',
         actions: [cartFetchSuccessfulAction, cartFetchFailedAction],
       },
     ]),

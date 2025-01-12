@@ -13,10 +13,14 @@
     "@angular/compiler": "^19.0.5",
     "@angular/core": "^19.0.5",
     "@ngrx/store": "^19.0.0",
+    "@pinia/testing": "^0.1.7",
+    "@vue/test-utils": "^2.4.6",
+    "pinia": "^2.3.0",
     "prettier": "^3.4.2",
     "redux": "^5.0.1",
     "rxjs": "^7.8.1",
     "typescript": "^5.7.2",
-    "vitest": "^2.1.8"
+    "vitest": "^2.1.8",
+    "vue": "^3.5.13"
   }
 }

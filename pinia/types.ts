@@ -1,10 +1,10 @@
 export type Transition<S> = {
   identityFn: (state: S) => boolean
-  actions: BasicAction[]
+  actions: string[]
 }
 
 export type Transitions<S> = Transition<S>[]
 
-export type BasicAction = {
-  type: string
+export type TransitionsByStoreId<S> = {
+  [storeId: string]: Transitions<S>
 }

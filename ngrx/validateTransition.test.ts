@@ -19,11 +19,11 @@ type Action = typeof fetchAction | typeof fetchSuccessfulAction | typeof fetchFa
 
 const transitions = createTransitions([
   {
-    condition: (state: State) => state === 'not-fetched',
+    identityFn: (state: State) => state === 'not-fetched',
     actions: [fetchAction],
   },
   {
-    condition: (state: State) => state === 'fetching',
+    identityFn: (state: State) => state === 'fetching',
     actions: [fetchSuccessfulAction, fetchFailedAction],
   },
 ])

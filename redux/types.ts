@@ -1,7 +1,7 @@
 import { Store } from 'redux'
 
 export type Transition<S> = {
-  condition: (state: S) => boolean
+  identityFn: (state: S) => boolean
   actionTypes: string[]
 }
 
