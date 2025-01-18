@@ -9,12 +9,10 @@ export function transitions<S>(transitionsByStoreId: TransitionsByStoreId<S>): P
   return ({ store }: PiniaUseCallbackArgs) => {
     const transitions = transitionsByStoreId[store.$id]
 
-    if (!transitions) {
-      return
+    if (transitions) {
+      store.$onAction(({ name, store }) => {
+        validateTransition(store.$state, name, transitions)
+      })
     }
-
-    store.$onAction(({ name, store }) => {
-      validateTransition(store.$state, name, transitions)
-    })
   }
 }
