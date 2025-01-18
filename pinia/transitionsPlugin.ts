@@ -5,16 +5,16 @@ import { validateTransition } from './validateTransition.ts'
 type PiniaUseCallback = Parameters<ReturnType<typeof createPinia>['use']>[0]
 type PiniaUseCallbackArgs = Parameters<PiniaUseCallback>[0]
 
-export function transitions<S>(storeTransitionMap: TransitionsByStoreId<S>): PiniaUseCallback {
+export function transitions<S>(transitionsByStoreId: TransitionsByStoreId<S>): PiniaUseCallback {
   return ({ store }: PiniaUseCallbackArgs) => {
-    const transitions = storeTransitionMap[store.$id]
+    const transitions = transitionsByStoreId[store.$id]
 
     if (!transitions) {
       return
     }
 
     store.$onAction(({ name, store }) => {
-      validateTransition(store.items, name, transitions)
+      validateTransition(store.$state, name, transitions)
     })
   }
 }
