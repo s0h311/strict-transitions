@@ -4,7 +4,7 @@ import { TransitionNotFoundError } from '../core/TransitionNotFoundError'
 
 export function validateTransition<S, A extends string>(state: S, action: A, transitions: Transitions<S>): void {
   for (const transition of transitions) {
-    if (transition.identityFn && transition.identityFn(state)) {
+    if (transition.identityFn(state)) {
       if (transition.actions.includes(action)) {
         return
       }
