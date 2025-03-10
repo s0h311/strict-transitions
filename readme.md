@@ -20,8 +20,8 @@ transitions.
 
 ### Pre-requisites
 
-- Node >=20
-- pnpm >= 9.12
+- `node >=20`
+- `pnpm >= 9.12`
 
 ### Installation
 
