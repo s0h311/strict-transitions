@@ -16,3 +16,21 @@ transitions.
 - Built as plugins in order to be easily integrated with different state managers.
 - The project is built with TypeScript to provide type safety and better developer experience.
 
+## Development
+
+### Pre-requisites
+
+- Node >=20
+- pnpm >= 9.12
+
+### Installation
+
+```bash
+pnpm install
+```
+
+### Running Tests
+
+```bash
+pnpm test
+```
