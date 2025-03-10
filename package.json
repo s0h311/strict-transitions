@@ -1,10 +1,6 @@
 {
   "name": "strict-transitions",
-  "version": "0.0.0",
   "type": "module",
-  "module": "dist/index.mjs",
-  "main": "dist/index.cjs",
-  "types": "dist/index.dts",
   "packageManager": "pnpm@9.12.0",
   "scripts": {
     "test": "vitest"
